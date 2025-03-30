@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selamat Hari Raya Idul Fitri</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            color: #333;
+            background-image: linear-gradient(45deg, #f5f5f5 25%, transparent 25%, transparent 75%, #f5f5f5 75%, #f5f5f5), 
+                              linear-gradient(45deg, #f5f5f5 25%, transparent 25%, transparent 75%, #f5f5f5 75%, #f5f5f5);
+            background-size: 60px 60px;
+            background-position: 0 0, 30px 30px;
+            scroll-behavior: smooth;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1e5799 0%, #207cca 51%, #2989d8 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+            z-index: 0;
+        }
+        
+        header * {
+            position: relative;
+            z-index: 1;
+        }
+        
+        h1 {
+            font-size: 3.2em;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+        
+        .greeting-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 40px;
+            transform: translateZ(0);
+            backface-visibility: hidden;
+        }
+        
+        .greeting-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: linear-gradient(90deg, #FF9800, #FFEB3B, #8BC34A, #00BCD4, #2196F3);
+        }
+        
+        .greeting-text {
+            font-size: 1.5em;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            color: #555;
+        }
+        
+        .lantern-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 30px 0;
+            perspective: 1000px;
+        }
+        
+        .lantern {
+            display: inline-block;
+            margin: 15px;
+            animation: sway 3s ease-in-out infinite alternate;
+            transform-style: preserve-3d;
+        }
+        
+        @keyframes sway {
+            from { transform: rotateY(-10deg) rotateZ(-5deg); }
+            to { transform: rotateY(10deg) rotateZ(5deg); }
+        }
+        
+        .lantern-wrapper {
+            position: relative;
+            width: 60px;
+            height: 90px;
+        }
+        
+        .lantern-body {
+            width: 60px;
+            height: 80px;
+            background-color: #e91e63;
+            border-radius: 30px;
+            position: absolute;
+            top: 10px;
+            left: 0;
+            box-shadow: 0 10px 15px rgba(0,0,0,0.2);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+        }
+        
+        .lantern-top {
+            width: 40px;
+            height: 10px;
+            background-color: #ffeb3b;
+            border-radius: 5px;
+            position: absolute;
+            top: 0;
+            left: 10px;
+        }
+        
+        .lantern-bottom {
+            width: 50px;
+            height: 10px;
+            background-color: #ffeb3b;
+            border-radius: 5px;
+            position: absolute;
+            bottom: -5px;
+            left: 5px;
+        }
+        
+        .lantern-detail {
+            width: 80%;
+            height: 2px;
+            background-color: #ffeb3b;
+        }
+        
+        .lantern-string {
+            position: absolute;
+            width: 2px;
+            height: 25px;
+            background-color: #795548;
+            top: -15px;
+            left: 29px;
+        }
+        
+        .thr-section {
+            background: linear-gradient(135deg, #ff9966 0%, #ff5e62 100%);
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 40px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            position: relative;
+            color: white;
+            overflow: hidden;
+        }
+        
+        .thr-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+            z-index: 0;
+        }
+        
+        .thr-section * {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .thr-title {
+            font-size: 2em;
+            color: white;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+        
+        .meme-popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+            z-index: 1000;
+            max-width: 90%;
+            width: 450px;
+            text-align: center;
+            display: none;
+        }
+        
+        .meme-container {
+            margin: 20px auto;
+            padding: 15px;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.5s ease;
+            background-color: #f9f9f9;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        .meme-img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .meme-img:hover {
+            transform: scale(1.03);
+        }
+        
+        .fireworks {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        footer {
+            margin-top: 60px;
+            padding: 30px;
+            font-size: 1em;
+            color: #888;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .joke {
+            font-style: italic;
+            background-color: #f7f9fc;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            line-height: 1.6;
+            position: relative;
+            border-left: 5px solid #2196F3;
+        }
+        
+        .thr-joke {
+            font-weight: normal;
+            color: #555;
+            font-size: 1.2em;
+        }
+        
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: var(--color);
+            opacity: 0.8;
+            animation: fall linear forwards;
+            border-radius: 2px;
+        }
+        
+        @keyframes fall {
+            0% { transform: translateY(-50px) rotate(0deg) scale(1); opacity: 1; }
+            100% { transform: translateY(calc(100vh + 50px)) rotate(720deg) scale(0.7); opacity: 0; }
+        }
+        
+        .heart-animation {
+            display: inline-block;
+            animation: heartbeat 1.5s infinite;
+            color: #e91e63;
+        }
+        
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            15% { transform: scale(1.3); }
+            30% { transform: scale(1); }
+            45% { transform: scale(1.3); }
+            60% { transform: scale(1); }
+            100% { transform: scale(1); }
+        }
+        
+        .btn-thr {
+            background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.2em;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.3s;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-thr::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: all 0.5s;
+        }
+        
+        .btn-thr:hover::before {
+            left: 100%;
+        }
+        
+        .btn-thr:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+        }
+        
+        .btn-thr:active {
+            transform: translateY(0);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            backdrop-filter: blur(5px);
+            z-index: 999;
+            display: none;
+            animation: fadeIn 0.3s forwards;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .meme-message {
+            margin-top: 20px;
+            color: #333;
+            font-weight: bold;
+            font-size: 1.3em;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: #f5f5f5;
+        }
+        
+        .btn-close {
+            background: linear-gradient(135deg, #2196F3 0%, #03A9F4 100%);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: 1.1em;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .btn-close:hover {
+            background: linear-gradient(135deg, #1976D2 0%, #0288D1 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-10px) rotate(-1deg); }
+            20%, 40%, 60%, 80% { transform: translateX(10px) rotate(1deg); }
+        }
+        
+        .shake {
+            animation: shake 0.8s cubic-bezier(.36,.07,.19,.97) both;
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+            
+            .greeting-text {
+                font-size: 1.3em;
+            }
+            
+            .greeting-card {
+                padding: 25px;
+            }
+            
+            .lantern-wrapper {
+                width: 50px;
+                height: 75px;
+            }
+            
+            .lantern-body {
+                width: 50px;
+                height: 65px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="fireworks" id="fireworks"></div>
+    
+    <div class="container">
+        <header>
+            <h1>Selamat Hari Raya Idul Fitri</h1>
+            <p>1 Syawal 1446 H</p>
+        </header>
+        
+        <div class="lantern-container">
+            <div class="lantern">
+                <div class="lantern-wrapper">
+                    <div class="lantern-string"></div>
+                    <div class="lantern-top"></div>
+                    <div class="lantern-body" style="background-color: #e91e63;">
+                        <div class="lantern-detail"></div>
+                        <div class="lantern-detail"></div>
+                        <div class="lantern-detail"></div>
+                    </div>
+                    <div class="lantern-bottom"></div>
+                </div>
+            </div>
+            <div class="lantern">
+                <div class="lantern-wrapper">
+                    <div class="lantern-string"></div>
+                    <div class="lantern-top"></div>
+                    <div class="lantern-body" style="background-color: #2196F3;">
+                        <div class="lantern-detail"></div>
+                        <div class="lantern-detail"></div>
+                        <div class="lantern-detail"></div>
+                    </div>
+                    <div class="lantern-bottom"></div>
+                </div>
+            </div>
+            <div class="lantern">
+                <div class="lantern-wrapper">
+                    <div class="lantern-string"></div>
+                    <div class="lantern-top"></div>
+                    <div class="lantern-body" style="background-color: #4CAF50;">
+                        <div class="lantern-detail"></div>
+                        <div class="lantern-detail"></div>
+                        <div class="lantern-detail"></div>
+                    </div>
+                    <div class="lantern-bottom"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="greeting-card">
+            <div class="greeting-text">
+                <p>Taqabbalallahu minna wa minkum, shiyamana wa shiyamakum.</p>
+                <p>Mohon maaf lahir dan batin <span class="heart-animation">❤️</span></p>
+                <p>Semoga Hari Raya Idul Fitri membawa berkah dan kebahagiaan untuk kita semua. 
+                   Di hari yang fitrah ini, semoga kita bisa memulai lembaran baru dengan hati 
+                   yang lebih bersih dan tekad yang lebih kuat untuk mengejar mimpi-mimpi kita.
+                </p>
+            </div>
+            
+            <div class="joke">
+                <p class="thr-joke">Eh teman, tolong doakan supaya project kita cepat selesai dan bisa dapat funding yang besar! Kita jadi CEO bareng-bareng 🚀✨ Jangan lupa kalau sukses nanti, traktir sate padang ya!</p>
+            </div>
+        </div>
+        
+        <div class="thr-section">
+            <h2 class="thr-title">Jangan lupa THR-nya! 😉</h2>
+            <p>👇 Klik tombol di bawah untuk melihat nomor rekening 👇</p>
+            <button class="btn-thr" id="btn-thr">Lihat Rekening THR</button>
+        </div>
+        
+        <footer>
+            <p>Dibuat dengan <span class="heart-animation">❤️</span> dan teman developer, Claude</p>
+            <p>© 2025 - Special for you, from a friend, Solomon</p>
+        </footer>
+    </div>
+    
+    <div class="overlay" id="overlay"></div>
+    
+    <div class="meme-popup" id="meme-popup">
+        <h3>HAHAHA GOTCHA!</h3>
+        <div class="meme-container" id="meme-container">
+            <img src="/api/placeholder/350/300" class="meme-img" alt="Meme Lebaran" id="meme-img">
+        </div>
+        <div class="meme-message" id="meme-message">THR terbaik adalah doa dan dukunganmu untuk kesuksesan kita bersama! Selamat Lebaran, sobat! 😄🙏</div>
+        <button class="btn-close" id="btn-close">Tutup</button>
+    </div>
+    
+    <script>
+        // Create fireworks effect
+        function createFirework() {
+            const fireworks = document.getElementById('fireworks');
+            const firework = document.createElement('div');
+            
+            const colors = ['#ff9800', '#4CAF50', '#2196F3', '#e91e63', '#9C27B0', '#FFEB3B'];
+            const size = Math.random() * 8 + 3;
+            const left = Math.random() * 100;
+            
+            firework.className = 'confetti';
+            firework.style.setProperty('--color', colors[Math.floor(Math.random() * colors.length)]);
+            firework.style.width = `${size}px`;
+            firework.style.height = `${size}px`;
+            firework.style.left = `${left}%`;
+            firework.style.animationDuration = `${Math.random() * 3 + 2}s`;
+            
+            fireworks.appendChild(firework);
+            
+            setTimeout(() => {
+                firework.remove();
+            }, 5000);
+        }
+        
+        // Create fireworks periodically
+        setInterval(createFirework, 300);
+        
+        // Button handlers
+        const btnThr = document.getElementById('btn-thr');
+        const overlay = document.getElementById('overlay');
+        const memePopup = document.getElementById('meme-popup');
+        const btnClose = document.getElementById('btn-close');
+        const memeContainer = document.getElementById('meme-container');
+        
+        // Array of meme placeholder images - in a real site, replace with actual meme URLs
+        const memes = [
+            "assets/images/windah.png"
+        ];
+
+        // Array of funny messages
+        const funnyMessages = [
+            "THR terbaik adalah doa dan dukunganmu untuk kesuksesan kita bersama! Selamat Lebaran, sobat! 😄🙏",
+            "Maaf, rekening THR sedang maintenance! Yang penting kita tetap bisa ketawa bareng kan? 🤣",
+            "Eits! Kena deh! THR yang sesungguhnya adalah persahabatan kita yang tak ternilai harganya! 😎"
+        ];
+        
+        btnThr.addEventListener('click', function() {
+            // Show overlay and meme popup
+            overlay.style.display = 'block';
+            memePopup.style.display = 'block';
+            
+            // Select random meme and message
+            const randomIndex = Math.floor(Math.random() * memes.length);
+            document.getElementById('meme-img').src = memes[randomIndex];
+            document.getElementById('meme-message').textContent = funnyMessages[randomIndex];
+            
+            // Add shake animation to meme container
+            memeContainer.classList.add('shake');
+            
+            // Remove shake animation after it completes
+            setTimeout(() => {
+                memeContainer.classList.remove('shake');
+            }, 800);
+            
+            // Create more fireworks on button click
+            for (let i = 0; i < 40; i++) {
+                setTimeout(createFirework, i * 40);
+            }
+        });
+        
+        btnClose.addEventListener('click', function() {
+            overlay.style.display = 'none';
+            memePopup.style.display = 'none';
+        });
+        
+        // Close when clicking outside the popup
+        overlay.addEventListener('click', function() {
+            overlay.style.display = 'none';
+            memePopup.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
